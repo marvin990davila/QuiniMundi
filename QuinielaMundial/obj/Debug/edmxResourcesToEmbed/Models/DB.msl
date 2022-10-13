@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QuinielaModelStoreContainer" CdmEntityContainer="QuinielaEntities1">
+    <EntitySetMapping Name="EncuentroGrupo">
+      <EntityTypeMapping TypeName="QuinielaModel.EncuentroGrupo">
+        <MappingFragment StoreEntitySet="EncuentroGrupo">
+          <ScalarProperty Name="idEncGrup" ColumnName="idEncGrup" />
+          <ScalarProperty Name="idMundial" ColumnName="idMundial" />
+          <ScalarProperty Name="idEncuentro" ColumnName="idEncuentro" />
+          <ScalarProperty Name="idEquiGrup" ColumnName="idEquiGrup" />
+          <ScalarProperty Name="golesEncuentros" ColumnName="golesEncuentros" />
+          <ScalarProperty Name="puntosEncuentro" ColumnName="puntosEncuentro" />
+          <ScalarProperty Name="fechaEncuentro" ColumnName="fechaEncuentro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EncuentroGrupoVati">
+      <EntityTypeMapping TypeName="QuinielaModel.EncuentroGrupoVati">
+        <MappingFragment StoreEntitySet="EncuentroGrupoVati">
+          <ScalarProperty Name="idEncGruVati" ColumnName="idEncGruVati" />
+          <ScalarProperty Name="idEncGrup1" ColumnName="idEncGrup1" />
+          <ScalarProperty Name="PrediGol1" ColumnName="PrediGol1" />
+          <ScalarProperty Name="idEncGrup2" ColumnName="idEncGrup2" />
+          <ScalarProperty Name="PrediGol2" ColumnName="PrediGol2" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Encuentros">
+      <EntityTypeMapping TypeName="QuinielaModel.Encuentros">
+        <MappingFragment StoreEntitySet="Encuentros">
+          <ScalarProperty Name="idEncuentro" ColumnName="idEncuentro" />
+          <ScalarProperty Name="encuentroNumero" ColumnName="encuentroNumero" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Equipo">
+      <EntityTypeMapping TypeName="QuinielaModel.Equipo">
+        <MappingFragment StoreEntitySet="Equipo">
+          <ScalarProperty Name="idEquipo" ColumnName="idEquipo" />
+          <ScalarProperty Name="equipo1" ColumnName="equipo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EquipoGrupo">
+      <EntityTypeMapping TypeName="QuinielaModel.EquipoGrupo">
+        <MappingFragment StoreEntitySet="EquipoGrupo">
+          <ScalarProperty Name="idEquiGrup" ColumnName="idEquiGrup" />
+          <ScalarProperty Name="idMundial" ColumnName="idMundial" />
+          <ScalarProperty Name="idGrupo" ColumnName="idGrupo" />
+          <ScalarProperty Name="idEquipo" ColumnName="idEquipo" />
+          <ScalarProperty Name="goles" ColumnName="goles" />
+          <ScalarProperty Name="puntos" ColumnName="puntos" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Grupo">
+      <EntityTypeMapping TypeName="QuinielaModel.Grupo">
+        <MappingFragment StoreEntitySet="Grupo">
+          <ScalarProperty Name="idGrupo" ColumnName="idGrupo" />
+          <ScalarProperty Name="grupo1" ColumnName="grupo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Invitados">
+      <EntityTypeMapping TypeName="QuinielaModel.Invitados">
+        <MappingFragment StoreEntitySet="Invitados">
+          <ScalarProperty Name="idInvitados" ColumnName="idInvitados" />
+          <ScalarProperty Name="idAdministrador" ColumnName="idAdministrador" />
+          <ScalarProperty Name="idPersona" ColumnName="idPersona" />
+          <ScalarProperty Name="idSolicitud" ColumnName="idSolicitud" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Mundial">
+      <EntityTypeMapping TypeName="QuinielaModel.Mundial">
+        <MappingFragment StoreEntitySet="Mundial">
+          <ScalarProperty Name="idMundial" ColumnName="idMundial" />
+          <ScalarProperty Name="mundial1" ColumnName="mundial" />
+          <ScalarProperty Name="fechar" ColumnName="fechar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Persona">
+      <EntityTypeMapping TypeName="QuinielaModel.Persona">
+        <MappingFragment StoreEntitySet="Persona">
+          <ScalarProperty Name="idPersona" ColumnName="idPersona" />
+          <ScalarProperty Name="nombre1" ColumnName="nombre1" />
+          <ScalarProperty Name="nombre2" ColumnName="nombre2" />
+          <ScalarProperty Name="apellido1" ColumnName="apellido1" />
+          <ScalarProperty Name="apellido2" ColumnName="apellido2" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pruevas">
+      <EntityTypeMapping TypeName="QuinielaModel.pruevas">
+        <MappingFragment StoreEntitySet="pruevas">
+          <ScalarProperty Name="idPrueva" ColumnName="idPrueva" />
+          <ScalarProperty Name="prue" ColumnName="prue" />
+          <ScalarProperty Name="prudate" ColumnName="prudate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Quiniela">
+      <EntityTypeMapping TypeName="QuinielaModel.Quiniela">
+        <MappingFragment StoreEntitySet="Quiniela">
+          <ScalarProperty Name="idQui" ColumnName="idQui" />
+          <ScalarProperty Name="nameQuiniela" ColumnName="nameQuiniela" />
+          <ScalarProperty Name="idUser" ColumnName="idUser" />
+          <ScalarProperty Name="idMundial" ColumnName="idMundial" />
+          <ScalarProperty Name="idTipQui" ColumnName="idTipQui" />
+          <ScalarProperty Name="monto" ColumnName="monto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QuinielaVaticinio">
+      <EntityTypeMapping TypeName="QuinielaModel.QuinielaVaticinio">
+        <MappingFragment StoreEntitySet="QuinielaVaticinio">
+          <ScalarProperty Name="idQuiVati" ColumnName="idQuiVati" />
+          <ScalarProperty Name="idQui" ColumnName="idQui" />
+          <ScalarProperty Name="idPersona" ColumnName="idPersona" />
+          <ScalarProperty Name="idVati" ColumnName="idVati" />
+          <ScalarProperty Name="puntosQuiniela" ColumnName="puntosQuiniela" />
+          <ScalarProperty Name="fechaQuiVati" ColumnName="fechaQuiVati" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Solicitudes">
+      <EntityTypeMapping TypeName="QuinielaModel.Solicitudes">
+        <MappingFragment StoreEntitySet="Solicitudes">
+          <ScalarProperty Name="idSolicitud" ColumnName="idSolicitud" />
+          <ScalarProperty Name="EstadoSolicitud" ColumnName="EstadoSolicitud" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoQuiniela">
+      <EntityTypeMapping TypeName="QuinielaModel.TipoQuiniela">
+        <MappingFragment StoreEntitySet="TipoQuiniela">
+          <ScalarProperty Name="idTipQui" ColumnName="idTipQui" />
+          <ScalarProperty Name="tipoQuiniela1" ColumnName="tipoQuiniela" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuario">
+      <EntityTypeMapping TypeName="QuinielaModel.Usuario">
+        <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="idUser" ColumnName="idUser" />
+          <ScalarProperty Name="nameUser" ColumnName="nameUser" />
+          <ScalarProperty Name="passwworr" ColumnName="passwworr" />
+          <ScalarProperty Name="idPersona" ColumnName="idPersona" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vaticinio">
+      <EntityTypeMapping TypeName="QuinielaModel.Vaticinio">
+        <MappingFragment StoreEntitySet="Vaticinio">
+          <ScalarProperty Name="idVati" ColumnName="idVati" />
+          <ScalarProperty Name="idPersona" ColumnName="idPersona" />
+          <ScalarProperty Name="idQui" ColumnName="idQui" />
+          <ScalarProperty Name="idEncuentro" ColumnName="idEncuentro" />
+          <ScalarProperty Name="idEncGruVati" ColumnName="idEncGruVati" />
+          <ScalarProperty Name="idVatiEstado" ColumnName="idVatiEstado" />
+          <ScalarProperty Name="puntosVati" ColumnName="puntosVati" />
+          <ScalarProperty Name="fechaVati" ColumnName="fechaVati" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VatiEstado">
+      <EntityTypeMapping TypeName="QuinielaModel.VatiEstado">
+        <MappingFragment StoreEntitySet="VatiEstado">
+          <ScalarProperty Name="idVatiEstado" ColumnName="idVatiEstado" />
+          <ScalarProperty Name="nameEstado" ColumnName="nameEstado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

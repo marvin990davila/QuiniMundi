@@ -1,0 +1,45 @@
+﻿@model IEnumerable<QuinielaMundial.Models.Usuario>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nameUser)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.passwworr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Persona.nombre1)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nameUser)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.passwworr)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Persona.nombre1)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idUser }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idUser }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idUser })
+        </td>
+    </tr>
+}
+
+</table>

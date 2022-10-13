@@ -1,0 +1,537 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QuinielaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="EncuentroGrupo">
+    <Key>
+      <PropertyRef Name="idEncGrup" />
+    </Key>
+    <Property Name="idEncGrup" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idMundial" Type="Int32" Nullable="false" />
+    <Property Name="idEncuentro" Type="Int32" Nullable="false" />
+    <Property Name="idEquiGrup" Type="Int32" Nullable="false" />
+    <Property Name="golesEncuentros" Type="Int32" Nullable="false" />
+    <Property Name="puntosEncuentro" Type="Double" Nullable="false" />
+    <Property Name="fechaEncuentro" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="EncuentroGrupoVati" Relationship="Self.fk_EncuGrupVati1" FromRole="EncuentroGrupo" ToRole="EncuentroGrupoVati" />
+    <NavigationProperty Name="EncuentroGrupoVati1" Relationship="Self.fk_EncuGrupVati2" FromRole="EncuentroGrupo" ToRole="EncuentroGrupoVati" />
+  </EntityType>
+  <EntityType Name="EncuentroGrupoVati">
+    <Key>
+      <PropertyRef Name="idEncGruVati" />
+    </Key>
+    <Property Name="idEncGruVati" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idEncGrup1" Type="Int32" Nullable="false" />
+    <Property Name="PrediGol1" Type="Int32" Nullable="false" />
+    <Property Name="idEncGrup2" Type="Int32" Nullable="false" />
+    <Property Name="PrediGol2" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="EncuentroGrupo" Relationship="Self.fk_EncuGrupVati1" FromRole="EncuentroGrupoVati" ToRole="EncuentroGrupo" />
+    <NavigationProperty Name="EncuentroGrupo1" Relationship="Self.fk_EncuGrupVati2" FromRole="EncuentroGrupoVati" ToRole="EncuentroGrupo" />
+    <NavigationProperty Name="Vaticinio" Relationship="Self.fk_EnGruVatiVati" FromRole="EncuentroGrupoVati" ToRole="Vaticinio" />
+  </EntityType>
+  <EntityType Name="Encuentros">
+    <Key>
+      <PropertyRef Name="idEncuentro" />
+    </Key>
+    <Property Name="idEncuentro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="encuentroNumero" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Vaticinio" Relationship="Self.fk_EncuentVati" FromRole="Encuentros" ToRole="Vaticinio" />
+  </EntityType>
+  <EntityType Name="Equipo">
+    <Key>
+      <PropertyRef Name="idEquipo" />
+    </Key>
+    <Property Name="idEquipo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="equipo1" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="EquipoGrupo" Relationship="Self.fk_EquipoEquiGrup" FromRole="Equipo" ToRole="EquipoGrupo" />
+  </EntityType>
+  <EntityType Name="EquipoGrupo">
+    <Key>
+      <PropertyRef Name="idEquiGrup" />
+    </Key>
+    <Property Name="idEquiGrup" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idMundial" Type="Int32" Nullable="false" />
+    <Property Name="idGrupo" Type="Int32" Nullable="false" />
+    <Property Name="idEquipo" Type="Int32" Nullable="false" />
+    <Property Name="goles" Type="Int32" Nullable="false" />
+    <Property Name="puntos" Type="Double" Nullable="false" />
+    <NavigationProperty Name="Equipo" Relationship="Self.fk_EquipoEquiGrup" FromRole="EquipoGrupo" ToRole="Equipo" />
+    <NavigationProperty Name="Grupo" Relationship="Self.fk_GrupoEquiGrup" FromRole="EquipoGrupo" ToRole="Grupo" />
+    <NavigationProperty Name="Mundial" Relationship="Self.fk_MundialEquiGrup" FromRole="EquipoGrupo" ToRole="Mundial" />
+  </EntityType>
+  <EntityType Name="Grupo">
+    <Key>
+      <PropertyRef Name="idGrupo" />
+    </Key>
+    <Property Name="idGrupo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="grupo1" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="EquipoGrupo" Relationship="Self.fk_GrupoEquiGrup" FromRole="Grupo" ToRole="EquipoGrupo" />
+  </EntityType>
+  <EntityType Name="Invitados">
+    <Key>
+      <PropertyRef Name="idInvitados" />
+    </Key>
+    <Property Name="idInvitados" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idAdministrador" Type="Int32" Nullable="false" />
+    <Property Name="idPersona" Type="Int32" Nullable="false" />
+    <Property Name="idSolicitud" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Persona" Relationship="Self.fk_PersonInvitado" FromRole="Invitados" ToRole="Persona" />
+    <NavigationProperty Name="Solicitudes" Relationship="Self.fk_SolicitudInvitado" FromRole="Invitados" ToRole="Solicitudes" />
+    <NavigationProperty Name="Usuario" Relationship="Self.fk_UserInvitado" FromRole="Invitados" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Mundial">
+    <Key>
+      <PropertyRef Name="idMundial" />
+    </Key>
+    <Property Name="idMundial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="mundial1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="fechar" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="EquipoGrupo" Relationship="Self.fk_MundialEquiGrup" FromRole="Mundial" ToRole="EquipoGrupo" />
+    <NavigationProperty Name="Quiniela" Relationship="Self.fk_MundialQuiniela" FromRole="Mundial" ToRole="Quiniela" />
+  </EntityType>
+  <EntityType Name="Persona">
+    <Key>
+      <PropertyRef Name="idPersona" />
+    </Key>
+    <Property Name="idPersona" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="nombre2" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="apellido1" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="apellido2" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="correo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Invitados" Relationship="Self.fk_PersonInvitado" FromRole="Persona" ToRole="Invitados" />
+    <NavigationProperty Name="QuinielaVaticinio" Relationship="Self.fk_PersonQui" FromRole="Persona" ToRole="QuinielaVaticinio" />
+    <NavigationProperty Name="Usuario" Relationship="Self.fk_personUser" FromRole="Persona" ToRole="Usuario" />
+    <NavigationProperty Name="Vaticinio" Relationship="Self.fk_persoVati" FromRole="Persona" ToRole="Vaticinio" />
+  </EntityType>
+  <EntityType Name="pruevas">
+    <Key>
+      <PropertyRef Name="idPrueva" />
+    </Key>
+    <Property Name="idPrueva" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="prue" Type="Double" Nullable="false" />
+    <Property Name="prudate" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="Quiniela">
+    <Key>
+      <PropertyRef Name="idQui" />
+    </Key>
+    <Property Name="idQui" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nameQuiniela" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idUser" Type="Int32" Nullable="false" />
+    <Property Name="idMundial" Type="Int32" Nullable="false" />
+    <Property Name="idTipQui" Type="Int32" Nullable="false" />
+    <Property Name="monto" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Mundial" Relationship="Self.fk_MundialQuiniela" FromRole="Quiniela" ToRole="Mundial" />
+    <NavigationProperty Name="QuinielaVaticinio" Relationship="Self.fk_QuiQuivati" FromRole="Quiniela" ToRole="QuinielaVaticinio" />
+    <NavigationProperty Name="Vaticinio" Relationship="Self.fk_QuiVati" FromRole="Quiniela" ToRole="Vaticinio" />
+    <NavigationProperty Name="TipoQuiniela" Relationship="Self.fk_tipoQuiniela" FromRole="Quiniela" ToRole="TipoQuiniela" />
+    <NavigationProperty Name="Usuario" Relationship="Self.fk_UserQuiniela" FromRole="Quiniela" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="QuinielaVaticinio">
+    <Key>
+      <PropertyRef Name="idQuiVati" />
+    </Key>
+    <Property Name="idQuiVati" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idQui" Type="Int32" Nullable="false" />
+    <Property Name="idPersona" Type="Int32" Nullable="false" />
+    <Property Name="idVati" Type="Int32" Nullable="false" />
+    <Property Name="puntosQuiniela" Type="Double" Nullable="false" />
+    <Property Name="fechaQuiVati" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Persona" Relationship="Self.fk_PersonQui" FromRole="QuinielaVaticinio" ToRole="Persona" />
+    <NavigationProperty Name="Quiniela" Relationship="Self.fk_QuiQuivati" FromRole="QuinielaVaticinio" ToRole="Quiniela" />
+    <NavigationProperty Name="Vaticinio" Relationship="Self.fk_VatiQui" FromRole="QuinielaVaticinio" ToRole="Vaticinio" />
+  </EntityType>
+  <EntityType Name="Solicitudes">
+    <Key>
+      <PropertyRef Name="idSolicitud" />
+    </Key>
+    <Property Name="idSolicitud" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EstadoSolicitud" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Invitados" Relationship="Self.fk_SolicitudInvitado" FromRole="Solicitudes" ToRole="Invitados" />
+  </EntityType>
+  <EntityType Name="TipoQuiniela">
+    <Key>
+      <PropertyRef Name="idTipQui" />
+    </Key>
+    <Property Name="idTipQui" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tipoQuiniela1" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Quiniela" Relationship="Self.fk_tipoQuiniela" FromRole="TipoQuiniela" ToRole="Quiniela" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="idUser" />
+    </Key>
+    <Property Name="idUser" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nameUser" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="passwworr" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idPersona" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Invitados" Relationship="Self.fk_UserInvitado" FromRole="Usuario" ToRole="Invitados" />
+    <NavigationProperty Name="Persona" Relationship="Self.fk_personUser" FromRole="Usuario" ToRole="Persona" />
+    <NavigationProperty Name="Quiniela" Relationship="Self.fk_UserQuiniela" FromRole="Usuario" ToRole="Quiniela" />
+  </EntityType>
+  <EntityType Name="Vaticinio">
+    <Key>
+      <PropertyRef Name="idVati" />
+    </Key>
+    <Property Name="idVati" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idPersona" Type="Int32" Nullable="false" />
+    <Property Name="idQui" Type="Int32" Nullable="false" />
+    <Property Name="idEncuentro" Type="Int32" Nullable="false" />
+    <Property Name="idEncGruVati" Type="Int32" Nullable="false" />
+    <Property Name="idVatiEstado" Type="Int32" Nullable="false" />
+    <Property Name="puntosVati" Type="Double" Nullable="false" />
+    <Property Name="fechaVati" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="EncuentroGrupoVati" Relationship="Self.fk_EnGruVatiVati" FromRole="Vaticinio" ToRole="EncuentroGrupoVati" />
+    <NavigationProperty Name="Encuentros" Relationship="Self.fk_EncuentVati" FromRole="Vaticinio" ToRole="Encuentros" />
+    <NavigationProperty Name="Persona" Relationship="Self.fk_persoVati" FromRole="Vaticinio" ToRole="Persona" />
+    <NavigationProperty Name="Quiniela" Relationship="Self.fk_QuiVati" FromRole="Vaticinio" ToRole="Quiniela" />
+    <NavigationProperty Name="QuinielaVaticinio" Relationship="Self.fk_VatiQui" FromRole="Vaticinio" ToRole="QuinielaVaticinio" />
+    <NavigationProperty Name="VatiEstado" Relationship="Self.fk_VatiEstado" FromRole="Vaticinio" ToRole="VatiEstado" />
+  </EntityType>
+  <EntityType Name="VatiEstado">
+    <Key>
+      <PropertyRef Name="idVatiEstado" />
+    </Key>
+    <Property Name="idVatiEstado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nameEstado" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Vaticinio" Relationship="Self.fk_VatiEstado" FromRole="VatiEstado" ToRole="Vaticinio" />
+  </EntityType>
+  <Association Name="fk_EncuGrupVati1">
+    <End Role="EncuentroGrupo" Type="Self.EncuentroGrupo" Multiplicity="1" />
+    <End Role="EncuentroGrupoVati" Type="Self.EncuentroGrupoVati" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EncuentroGrupo">
+        <PropertyRef Name="idEncGrup" />
+      </Principal>
+      <Dependent Role="EncuentroGrupoVati">
+        <PropertyRef Name="idEncGrup1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_EncuGrupVati2">
+    <End Role="EncuentroGrupo" Type="Self.EncuentroGrupo" Multiplicity="1" />
+    <End Role="EncuentroGrupoVati" Type="Self.EncuentroGrupoVati" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EncuentroGrupo">
+        <PropertyRef Name="idEncGrup" />
+      </Principal>
+      <Dependent Role="EncuentroGrupoVati">
+        <PropertyRef Name="idEncGrup2" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_EnGruVatiVati">
+    <End Role="EncuentroGrupoVati" Type="Self.EncuentroGrupoVati" Multiplicity="1" />
+    <End Role="Vaticinio" Type="Self.Vaticinio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EncuentroGrupoVati">
+        <PropertyRef Name="idEncGruVati" />
+      </Principal>
+      <Dependent Role="Vaticinio">
+        <PropertyRef Name="idEncGruVati" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_EncuentVati">
+    <End Role="Encuentros" Type="Self.Encuentros" Multiplicity="1" />
+    <End Role="Vaticinio" Type="Self.Vaticinio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Encuentros">
+        <PropertyRef Name="idEncuentro" />
+      </Principal>
+      <Dependent Role="Vaticinio">
+        <PropertyRef Name="idEncuentro" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_EquipoEquiGrup">
+    <End Role="Equipo" Type="Self.Equipo" Multiplicity="1" />
+    <End Role="EquipoGrupo" Type="Self.EquipoGrupo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Equipo">
+        <PropertyRef Name="idEquipo" />
+      </Principal>
+      <Dependent Role="EquipoGrupo">
+        <PropertyRef Name="idEquipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_GrupoEquiGrup">
+    <End Role="Grupo" Type="Self.Grupo" Multiplicity="1" />
+    <End Role="EquipoGrupo" Type="Self.EquipoGrupo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Grupo">
+        <PropertyRef Name="idGrupo" />
+      </Principal>
+      <Dependent Role="EquipoGrupo">
+        <PropertyRef Name="idGrupo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_MundialEquiGrup">
+    <End Role="Mundial" Type="Self.Mundial" Multiplicity="1" />
+    <End Role="EquipoGrupo" Type="Self.EquipoGrupo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Mundial">
+        <PropertyRef Name="idMundial" />
+      </Principal>
+      <Dependent Role="EquipoGrupo">
+        <PropertyRef Name="idMundial" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_PersonInvitado">
+    <End Role="Persona" Type="Self.Persona" Multiplicity="1" />
+    <End Role="Invitados" Type="Self.Invitados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Persona">
+        <PropertyRef Name="idPersona" />
+      </Principal>
+      <Dependent Role="Invitados">
+        <PropertyRef Name="idPersona" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_SolicitudInvitado">
+    <End Role="Solicitudes" Type="Self.Solicitudes" Multiplicity="1" />
+    <End Role="Invitados" Type="Self.Invitados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Solicitudes">
+        <PropertyRef Name="idSolicitud" />
+      </Principal>
+      <Dependent Role="Invitados">
+        <PropertyRef Name="idSolicitud" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_UserInvitado">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="Invitados" Type="Self.Invitados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="idUser" />
+      </Principal>
+      <Dependent Role="Invitados">
+        <PropertyRef Name="idAdministrador" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_MundialQuiniela">
+    <End Role="Mundial" Type="Self.Mundial" Multiplicity="1" />
+    <End Role="Quiniela" Type="Self.Quiniela" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Mundial">
+        <PropertyRef Name="idMundial" />
+      </Principal>
+      <Dependent Role="Quiniela">
+        <PropertyRef Name="idMundial" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_PersonQui">
+    <End Role="Persona" Type="Self.Persona" Multiplicity="1" />
+    <End Role="QuinielaVaticinio" Type="Self.QuinielaVaticinio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Persona">
+        <PropertyRef Name="idPersona" />
+      </Principal>
+      <Dependent Role="QuinielaVaticinio">
+        <PropertyRef Name="idPersona" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_personUser">
+    <End Role="Persona" Type="Self.Persona" Multiplicity="1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Persona">
+        <PropertyRef Name="idPersona" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="idPersona" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_persoVati">
+    <End Role="Persona" Type="Self.Persona" Multiplicity="1" />
+    <End Role="Vaticinio" Type="Self.Vaticinio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Persona">
+        <PropertyRef Name="idPersona" />
+      </Principal>
+      <Dependent Role="Vaticinio">
+        <PropertyRef Name="idPersona" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_QuiQuivati">
+    <End Role="Quiniela" Type="Self.Quiniela" Multiplicity="1" />
+    <End Role="QuinielaVaticinio" Type="Self.QuinielaVaticinio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Quiniela">
+        <PropertyRef Name="idQui" />
+      </Principal>
+      <Dependent Role="QuinielaVaticinio">
+        <PropertyRef Name="idQui" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_QuiVati">
+    <End Role="Quiniela" Type="Self.Quiniela" Multiplicity="1" />
+    <End Role="Vaticinio" Type="Self.Vaticinio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Quiniela">
+        <PropertyRef Name="idQui" />
+      </Principal>
+      <Dependent Role="Vaticinio">
+        <PropertyRef Name="idQui" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_tipoQuiniela">
+    <End Role="TipoQuiniela" Type="Self.TipoQuiniela" Multiplicity="1" />
+    <End Role="Quiniela" Type="Self.Quiniela" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoQuiniela">
+        <PropertyRef Name="idTipQui" />
+      </Principal>
+      <Dependent Role="Quiniela">
+        <PropertyRef Name="idTipQui" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_UserQuiniela">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="Quiniela" Type="Self.Quiniela" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="idUser" />
+      </Principal>
+      <Dependent Role="Quiniela">
+        <PropertyRef Name="idUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_VatiQui">
+    <End Role="Vaticinio" Type="Self.Vaticinio" Multiplicity="1" />
+    <End Role="QuinielaVaticinio" Type="Self.QuinielaVaticinio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vaticinio">
+        <PropertyRef Name="idVati" />
+      </Principal>
+      <Dependent Role="QuinielaVaticinio">
+        <PropertyRef Name="idVati" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_VatiEstado">
+    <End Role="VatiEstado" Type="Self.VatiEstado" Multiplicity="1" />
+    <End Role="Vaticinio" Type="Self.Vaticinio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VatiEstado">
+        <PropertyRef Name="idVatiEstado" />
+      </Principal>
+      <Dependent Role="Vaticinio">
+        <PropertyRef Name="idVatiEstado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QuinielaEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="EncuentroGrupo" EntityType="Self.EncuentroGrupo" />
+    <EntitySet Name="EncuentroGrupoVati" EntityType="Self.EncuentroGrupoVati" />
+    <EntitySet Name="Encuentros" EntityType="Self.Encuentros" />
+    <EntitySet Name="Equipo" EntityType="Self.Equipo" />
+    <EntitySet Name="EquipoGrupo" EntityType="Self.EquipoGrupo" />
+    <EntitySet Name="Grupo" EntityType="Self.Grupo" />
+    <EntitySet Name="Invitados" EntityType="Self.Invitados" />
+    <EntitySet Name="Mundial" EntityType="Self.Mundial" />
+    <EntitySet Name="Persona" EntityType="Self.Persona" />
+    <EntitySet Name="pruevas" EntityType="Self.pruevas" />
+    <EntitySet Name="Quiniela" EntityType="Self.Quiniela" />
+    <EntitySet Name="QuinielaVaticinio" EntityType="Self.QuinielaVaticinio" />
+    <EntitySet Name="Solicitudes" EntityType="Self.Solicitudes" />
+    <EntitySet Name="TipoQuiniela" EntityType="Self.TipoQuiniela" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+    <EntitySet Name="Vaticinio" EntityType="Self.Vaticinio" />
+    <EntitySet Name="VatiEstado" EntityType="Self.VatiEstado" />
+    <AssociationSet Name="fk_EncuGrupVati1" Association="Self.fk_EncuGrupVati1">
+      <End Role="EncuentroGrupo" EntitySet="EncuentroGrupo" />
+      <End Role="EncuentroGrupoVati" EntitySet="EncuentroGrupoVati" />
+    </AssociationSet>
+    <AssociationSet Name="fk_EncuGrupVati2" Association="Self.fk_EncuGrupVati2">
+      <End Role="EncuentroGrupo" EntitySet="EncuentroGrupo" />
+      <End Role="EncuentroGrupoVati" EntitySet="EncuentroGrupoVati" />
+    </AssociationSet>
+    <AssociationSet Name="fk_EnGruVatiVati" Association="Self.fk_EnGruVatiVati">
+      <End Role="EncuentroGrupoVati" EntitySet="EncuentroGrupoVati" />
+      <End Role="Vaticinio" EntitySet="Vaticinio" />
+    </AssociationSet>
+    <AssociationSet Name="fk_EncuentVati" Association="Self.fk_EncuentVati">
+      <End Role="Encuentros" EntitySet="Encuentros" />
+      <End Role="Vaticinio" EntitySet="Vaticinio" />
+    </AssociationSet>
+    <AssociationSet Name="fk_EquipoEquiGrup" Association="Self.fk_EquipoEquiGrup">
+      <End Role="Equipo" EntitySet="Equipo" />
+      <End Role="EquipoGrupo" EntitySet="EquipoGrupo" />
+    </AssociationSet>
+    <AssociationSet Name="fk_GrupoEquiGrup" Association="Self.fk_GrupoEquiGrup">
+      <End Role="Grupo" EntitySet="Grupo" />
+      <End Role="EquipoGrupo" EntitySet="EquipoGrupo" />
+    </AssociationSet>
+    <AssociationSet Name="fk_MundialEquiGrup" Association="Self.fk_MundialEquiGrup">
+      <End Role="Mundial" EntitySet="Mundial" />
+      <End Role="EquipoGrupo" EntitySet="EquipoGrupo" />
+    </AssociationSet>
+    <AssociationSet Name="fk_PersonInvitado" Association="Self.fk_PersonInvitado">
+      <End Role="Persona" EntitySet="Persona" />
+      <End Role="Invitados" EntitySet="Invitados" />
+    </AssociationSet>
+    <AssociationSet Name="fk_SolicitudInvitado" Association="Self.fk_SolicitudInvitado">
+      <End Role="Solicitudes" EntitySet="Solicitudes" />
+      <End Role="Invitados" EntitySet="Invitados" />
+    </AssociationSet>
+    <AssociationSet Name="fk_UserInvitado" Association="Self.fk_UserInvitado">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Invitados" EntitySet="Invitados" />
+    </AssociationSet>
+    <AssociationSet Name="fk_MundialQuiniela" Association="Self.fk_MundialQuiniela">
+      <End Role="Mundial" EntitySet="Mundial" />
+      <End Role="Quiniela" EntitySet="Quiniela" />
+    </AssociationSet>
+    <AssociationSet Name="fk_PersonQui" Association="Self.fk_PersonQui">
+      <End Role="Persona" EntitySet="Persona" />
+      <End Role="QuinielaVaticinio" EntitySet="QuinielaVaticinio" />
+    </AssociationSet>
+    <AssociationSet Name="fk_personUser" Association="Self.fk_personUser">
+      <End Role="Persona" EntitySet="Persona" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="fk_persoVati" Association="Self.fk_persoVati">
+      <End Role="Persona" EntitySet="Persona" />
+      <End Role="Vaticinio" EntitySet="Vaticinio" />
+    </AssociationSet>
+    <AssociationSet Name="fk_QuiQuivati" Association="Self.fk_QuiQuivati">
+      <End Role="Quiniela" EntitySet="Quiniela" />
+      <End Role="QuinielaVaticinio" EntitySet="QuinielaVaticinio" />
+    </AssociationSet>
+    <AssociationSet Name="fk_QuiVati" Association="Self.fk_QuiVati">
+      <End Role="Quiniela" EntitySet="Quiniela" />
+      <End Role="Vaticinio" EntitySet="Vaticinio" />
+    </AssociationSet>
+    <AssociationSet Name="fk_tipoQuiniela" Association="Self.fk_tipoQuiniela">
+      <End Role="TipoQuiniela" EntitySet="TipoQuiniela" />
+      <End Role="Quiniela" EntitySet="Quiniela" />
+    </AssociationSet>
+    <AssociationSet Name="fk_UserQuiniela" Association="Self.fk_UserQuiniela">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Quiniela" EntitySet="Quiniela" />
+    </AssociationSet>
+    <AssociationSet Name="fk_VatiQui" Association="Self.fk_VatiQui">
+      <End Role="Vaticinio" EntitySet="Vaticinio" />
+      <End Role="QuinielaVaticinio" EntitySet="QuinielaVaticinio" />
+    </AssociationSet>
+    <AssociationSet Name="fk_VatiEstado" Association="Self.fk_VatiEstado">
+      <End Role="VatiEstado" EntitySet="VatiEstado" />
+      <End Role="Vaticinio" EntitySet="Vaticinio" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

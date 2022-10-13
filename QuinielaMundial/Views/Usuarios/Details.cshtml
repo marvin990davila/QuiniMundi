@@ -1,0 +1,42 @@
+﻿@model QuinielaMundial.Models.Usuario
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Usuario</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nameUser)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nameUser)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.passwworr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.passwworr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Persona.nombre1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Persona.nombre1)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idUser }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
