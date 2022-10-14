@@ -4,26 +4,26 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="0e125896e02c410e88dda421ccf2139b" Name="Diagram1">
-        <EntityTypeShape EntityType="QuinielaModel.EncuentroGrupo" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuinielaModel.EncuentroGrupoVati" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuinielaModel.Encuentros" Width="1.5" PointX="5.25" PointY="6.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuinielaModel.Equipo" Width="1.5" PointX="6" PointY="19" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuinielaModel.EquipoGrupo" Width="1.5" PointX="8.25" PointY="4.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuinielaModel.Grupo" Width="1.5" PointX="6" PointY="21.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuinielaModel.Invitados" Width="1.5" PointX="5.25" PointY="8.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuinielaModel.Mundial" Width="1.5" PointX="3" PointY="9" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuinielaModel.Persona" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuinielaModel.pruevas" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuinielaModel.Quiniela" Width="1.5" PointX="5.25" PointY="12.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuinielaModel.QuinielaVaticinio" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuinielaModel.Solicitudes" Width="1.5" PointX="3" PointY="19.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuinielaModel.TipoQuiniela" Width="1.5" PointX="3" PointY="15.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuinielaModel.Usuario" Width="1.5" PointX="3" PointY="12" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuinielaModel.Vaticinio" Width="1.5" PointX="7.5" PointY="8.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuinielaModel.VatiEstado" Width="1.5" PointX="5.25" PointY="16.5" IsExpanded="true" />
+      <Diagram DiagramId="ef979238ec924a7694dc2e55574283ce" Name="Diagram1">
+        <EntityTypeShape EntityType="QuinielaModel.EncuentroGrupo" Width="1.5" PointX="3" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuinielaModel.EncuentroGrupoVatii" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuinielaModel.Encuentros" Width="1.5" PointX="3" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuinielaModel.Equipo" Width="1.5" PointX="6" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuinielaModel.EquipoGrupo" Width="1.5" PointX="8.25" PointY="16.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuinielaModel.Grupo" Width="1.5" PointX="6" PointY="22.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuinielaModel.Invitados" Width="1.5" PointX="5.25" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuinielaModel.Mundial" Width="1.5" PointX="3" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuinielaModel.Persona" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuinielaModel.pruevas" Width="1.5" PointX="5.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuinielaModel.Quiniela" Width="1.5" PointX="5.25" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuinielaModel.QuinielaVaticinio" Width="1.5" PointX="3" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuinielaModel.Solicitudes" Width="1.5" PointX="3" PointY="22.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuinielaModel.TipoQuiniela" Width="1.5" PointX="3" PointY="19.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuinielaModel.Usuario" Width="1.5" PointX="3" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuinielaModel.Vaticinio" Width="1.5" PointX="7.5" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuinielaModel.VatiEstado" Width="1.5" PointX="5.25" PointY="17.25" IsExpanded="true" />
         <AssociationConnector Association="QuinielaModel.fk_EncuGrupVati1" ManuallyRouted="false" />
-        <AssociationConnector Association="QuinielaModel.fk_EncuGrupVati2" ManuallyRouted="false" />
+        <AssociationConnector Association="QuinielaModel.fk_Encuentr2EnGruVati" ManuallyRouted="false" />
         <AssociationConnector Association="QuinielaModel.fk_EnGruVatiVati" ManuallyRouted="false" />
         <AssociationConnector Association="QuinielaModel.fk_EncuentVati" ManuallyRouted="false" />
         <AssociationConnector Association="QuinielaModel.fk_EquipoEquiGrup" ManuallyRouted="false" />
@@ -32,7 +32,7 @@
         <AssociationConnector Association="QuinielaModel.fk_PersonInvitado" ManuallyRouted="false" />
         <AssociationConnector Association="QuinielaModel.fk_SolicitudInvitado" ManuallyRouted="false" />
         <AssociationConnector Association="QuinielaModel.fk_UserInvitado" ManuallyRouted="false" />
-        <AssociationConnector Association="QuinielaModel.fk_MundialQuiniela" ManuallyRouted="false" />
+        <AssociationConnector Association="QuinielaModel.fk_MundialQuiniela2" ManuallyRouted="false" />
         <AssociationConnector Association="QuinielaModel.fk_PersonQui" ManuallyRouted="false" />
         <AssociationConnector Association="QuinielaModel.fk_personUser" ManuallyRouted="false" />
         <AssociationConnector Association="QuinielaModel.fk_persoVati" ManuallyRouted="false" />

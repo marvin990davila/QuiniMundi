@@ -13,44 +13,44 @@ using QuinielaMundial.Models;
 
 namespace QuinielaMundial.Controllers
 {
-    public class PersonasController : ApiController
+    public class pruevasController : ApiController
     {
         private QuinielaEntities2 db = new QuinielaEntities2();
 
-        // GET: api/Personas
-        public IQueryable<Persona> GetPersona()
+        // GET: api/pruevas
+        public IQueryable<pruevas> Getpruevas()
         {
-            return db.Persona;
+            return db.pruevas;
         }
 
-        // GET: api/Personas/5
-        [ResponseType(typeof(Persona))]
-        public async Task<IHttpActionResult> GetPersona(int id)
+        // GET: api/pruevas/5
+        [ResponseType(typeof(pruevas))]
+        public async Task<IHttpActionResult> Getpruevas(int id)
         {
-            Persona persona = await db.Persona.FindAsync(id);
-            if (persona == null)
+            pruevas pruevas = await db.pruevas.FindAsync(id);
+            if (pruevas == null)
             {
                 return NotFound();
             }
 
-            return Ok(persona);
+            return Ok(pruevas);
         }
 
-        // PUT: api/Personas/5
+        // PUT: api/pruevas/5
         [ResponseType(typeof(void))]
-        public async Task<IHttpActionResult> PutPersona(int id, Persona persona)
+        public async Task<IHttpActionResult> Putpruevas(int id, pruevas pruevas)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != persona.idPersona)
+            if (id != pruevas.idPrueva)
             {
                 return BadRequest();
             }
 
-            db.Entry(persona).State = EntityState.Modified;
+            db.Entry(pruevas).State = EntityState.Modified;
 
             try
             {
@@ -58,7 +58,7 @@ namespace QuinielaMundial.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!PersonaExists(id))
+                if (!pruevasExists(id))
                 {
                     return NotFound();
                 }
@@ -71,35 +71,35 @@ namespace QuinielaMundial.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Personas
-        [ResponseType(typeof(Persona))]
-        public async Task<IHttpActionResult> PostPersona(Persona persona)
+        // POST: api/pruevas
+        [ResponseType(typeof(pruevas))]
+        public async Task<IHttpActionResult> Postpruevas(pruevas pruevas)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Persona.Add(persona);
+            db.pruevas.Add(pruevas);
             await db.SaveChangesAsync();
 
-            return CreatedAtRoute("DefaultApi", new { id = persona.idPersona }, persona);
+            return CreatedAtRoute("DefaultApi", new { id = pruevas.idPrueva }, pruevas);
         }
 
-        // DELETE: api/Personas/5
-        [ResponseType(typeof(Persona))]
-        public async Task<IHttpActionResult> DeletePersona(int id)
+        // DELETE: api/pruevas/5
+        [ResponseType(typeof(pruevas))]
+        public async Task<IHttpActionResult> Deletepruevas(int id)
         {
-            Persona persona = await db.Persona.FindAsync(id);
-            if (persona == null)
+            pruevas pruevas = await db.pruevas.FindAsync(id);
+            if (pruevas == null)
             {
                 return NotFound();
             }
 
-            db.Persona.Remove(persona);
+            db.pruevas.Remove(pruevas);
             await db.SaveChangesAsync();
 
-            return Ok(persona);
+            return Ok(pruevas);
         }
 
         protected override void Dispose(bool disposing)
@@ -111,9 +111,9 @@ namespace QuinielaMundial.Controllers
             base.Dispose(disposing);
         }
 
-        private bool PersonaExists(int id)
+        private bool pruevasExists(int id)
         {
-            return db.Persona.Count(e => e.idPersona == id) > 0;
+            return db.pruevas.Count(e => e.idPrueva == id) > 0;
         }
     }
 }

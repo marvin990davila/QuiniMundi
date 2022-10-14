@@ -29,7 +29,7 @@ namespace QuinielaMundial.Models
         public double puntosVati { get; set; }
         public Nullable<System.DateTime> fechaVati { get; set; }
     
-        public virtual EncuentroGrupoVati EncuentroGrupoVati { get; set; }
+        public virtual EncuentroGrupoVatii EncuentroGrupoVatii { get; set; }
         public virtual Encuentros Encuentros { get; set; }
         public virtual Persona Persona { get; set; }
         public virtual Quiniela Quiniela { get; set; }

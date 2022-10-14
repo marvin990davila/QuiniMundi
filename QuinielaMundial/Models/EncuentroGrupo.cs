@@ -17,8 +17,7 @@ namespace QuinielaMundial.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public EncuentroGrupo()
         {
-            this.EncuentroGrupoVati = new HashSet<EncuentroGrupoVati>();
-            this.EncuentroGrupoVati1 = new HashSet<EncuentroGrupoVati>();
+            this.EncuentroGrupoVatii = new HashSet<EncuentroGrupoVatii>();
         }
     
         public int idEncGrup { get; set; }
@@ -30,8 +29,6 @@ namespace QuinielaMundial.Models
         public Nullable<System.DateTime> fechaEncuentro { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<EncuentroGrupoVati> EncuentroGrupoVati { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<EncuentroGrupoVati> EncuentroGrupoVati1 { get; set; }
+        public virtual ICollection<EncuentroGrupoVatii> EncuentroGrupoVatii { get; set; }
     }
 }

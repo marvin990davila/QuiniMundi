@@ -13,10 +13,10 @@ namespace QuinielaMundial.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class QuinielaEntities1 : DbContext
+    public partial class QuinielaEntities2 : DbContext
     {
-        public QuinielaEntities1()
-            : base("name=QuinielaEntities1")
+        public QuinielaEntities2()
+            : base("name=QuinielaEntities2")
         {
         }
     
@@ -26,7 +26,7 @@ namespace QuinielaMundial.Models
         }
     
         public virtual DbSet<EncuentroGrupo> EncuentroGrupo { get; set; }
-        public virtual DbSet<EncuentroGrupoVati> EncuentroGrupoVati { get; set; }
+        public virtual DbSet<EncuentroGrupoVatii> EncuentroGrupoVatii { get; set; }
         public virtual DbSet<Encuentros> Encuentros { get; set; }
         public virtual DbSet<Equipo> Equipo { get; set; }
         public virtual DbSet<EquipoGrupo> EquipoGrupo { get; set; }

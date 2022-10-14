@@ -17,15 +17,14 @@
           <Property Name="puntosEncuentro" Type="float" Nullable="false" />
           <Property Name="fechaEncuentro" Type="date" />
         </EntityType>
-        <EntityType Name="EncuentroGrupoVati">
+        <EntityType Name="EncuentroGrupoVatii">
           <Key>
             <PropertyRef Name="idEncGruVati" />
           </Key>
           <Property Name="idEncGruVati" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="idEncGrup1" Type="int" Nullable="false" />
-          <Property Name="PrediGol1" Type="int" Nullable="false" />
-          <Property Name="idEncGrup2" Type="int" Nullable="false" />
-          <Property Name="PrediGol2" Type="int" Nullable="false" />
+          <Property Name="idEncuentro" Type="int" Nullable="false" />
+          <Property Name="idEncGrup" Type="int" Nullable="false" />
+          <Property Name="PrediGol" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Encuentros">
           <Key>
@@ -160,6 +159,18 @@
           <Property Name="idVatiEstado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nameEstado" Type="varchar" MaxLength="15" Nullable="false" />
         </EntityType>
+        <Association Name="fk_Encuentr2EnGruVati">
+          <End Role="Encuentros" Type="Self.Encuentros" Multiplicity="1" />
+          <End Role="EncuentroGrupoVatii" Type="Self.EncuentroGrupoVatii" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Encuentros">
+              <PropertyRef Name="idEncuentro" />
+            </Principal>
+            <Dependent Role="EncuentroGrupoVatii">
+              <PropertyRef Name="idEncuentro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="fk_EncuentVati">
           <End Role="Encuentros" Type="Self.Encuentros" Multiplicity="1" />
           <End Role="Vaticinio" Type="Self.Vaticinio" Multiplicity="*" />
@@ -174,33 +185,21 @@
         </Association>
         <Association Name="fk_EncuGrupVati1">
           <End Role="EncuentroGrupo" Type="Self.EncuentroGrupo" Multiplicity="1" />
-          <End Role="EncuentroGrupoVati" Type="Self.EncuentroGrupoVati" Multiplicity="*" />
+          <End Role="EncuentroGrupoVatii" Type="Self.EncuentroGrupoVatii" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="EncuentroGrupo">
               <PropertyRef Name="idEncGrup" />
             </Principal>
-            <Dependent Role="EncuentroGrupoVati">
-              <PropertyRef Name="idEncGrup1" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_EncuGrupVati2">
-          <End Role="EncuentroGrupo" Type="Self.EncuentroGrupo" Multiplicity="1" />
-          <End Role="EncuentroGrupoVati" Type="Self.EncuentroGrupoVati" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="EncuentroGrupo">
+            <Dependent Role="EncuentroGrupoVatii">
               <PropertyRef Name="idEncGrup" />
-            </Principal>
-            <Dependent Role="EncuentroGrupoVati">
-              <PropertyRef Name="idEncGrup2" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_EnGruVatiVati">
-          <End Role="EncuentroGrupoVati" Type="Self.EncuentroGrupoVati" Multiplicity="1" />
+          <End Role="EncuentroGrupoVatii" Type="Self.EncuentroGrupoVatii" Multiplicity="1" />
           <End Role="Vaticinio" Type="Self.Vaticinio" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="EncuentroGrupoVati">
+            <Principal Role="EncuentroGrupoVatii">
               <PropertyRef Name="idEncGruVati" />
             </Principal>
             <Dependent Role="Vaticinio">
@@ -244,7 +243,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_MundialQuiniela">
+        <Association Name="fk_MundialQuiniela2">
           <End Role="Mundial" Type="Self.Mundial" Multiplicity="1" />
           <End Role="Quiniela" Type="Self.Quiniela" Multiplicity="*" />
           <ReferentialConstraint>
@@ -402,7 +401,7 @@
         </Association>
         <EntityContainer Name="QuinielaModelStoreContainer">
           <EntitySet Name="EncuentroGrupo" EntityType="Self.EncuentroGrupo" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="EncuentroGrupoVati" EntityType="Self.EncuentroGrupoVati" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EncuentroGrupoVatii" EntityType="Self.EncuentroGrupoVatii" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Encuentros" EntityType="Self.Encuentros" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Equipo" EntityType="Self.Equipo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EquipoGrupo" EntityType="Self.EquipoGrupo" Schema="dbo" store:Type="Tables" />
@@ -418,20 +417,20 @@
           <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Vaticinio" EntityType="Self.Vaticinio" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VatiEstado" EntityType="Self.VatiEstado" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="fk_Encuentr2EnGruVati" Association="Self.fk_Encuentr2EnGruVati">
+            <End Role="Encuentros" EntitySet="Encuentros" />
+            <End Role="EncuentroGrupoVatii" EntitySet="EncuentroGrupoVatii" />
+          </AssociationSet>
           <AssociationSet Name="fk_EncuentVati" Association="Self.fk_EncuentVati">
             <End Role="Encuentros" EntitySet="Encuentros" />
             <End Role="Vaticinio" EntitySet="Vaticinio" />
           </AssociationSet>
           <AssociationSet Name="fk_EncuGrupVati1" Association="Self.fk_EncuGrupVati1">
             <End Role="EncuentroGrupo" EntitySet="EncuentroGrupo" />
-            <End Role="EncuentroGrupoVati" EntitySet="EncuentroGrupoVati" />
-          </AssociationSet>
-          <AssociationSet Name="fk_EncuGrupVati2" Association="Self.fk_EncuGrupVati2">
-            <End Role="EncuentroGrupo" EntitySet="EncuentroGrupo" />
-            <End Role="EncuentroGrupoVati" EntitySet="EncuentroGrupoVati" />
+            <End Role="EncuentroGrupoVatii" EntitySet="EncuentroGrupoVatii" />
           </AssociationSet>
           <AssociationSet Name="fk_EnGruVatiVati" Association="Self.fk_EnGruVatiVati">
-            <End Role="EncuentroGrupoVati" EntitySet="EncuentroGrupoVati" />
+            <End Role="EncuentroGrupoVatii" EntitySet="EncuentroGrupoVatii" />
             <End Role="Vaticinio" EntitySet="Vaticinio" />
           </AssociationSet>
           <AssociationSet Name="fk_EquipoEquiGrup" Association="Self.fk_EquipoEquiGrup">
@@ -446,7 +445,7 @@
             <End Role="Mundial" EntitySet="Mundial" />
             <End Role="EquipoGrupo" EntitySet="EquipoGrupo" />
           </AssociationSet>
-          <AssociationSet Name="fk_MundialQuiniela" Association="Self.fk_MundialQuiniela">
+          <AssociationSet Name="fk_MundialQuiniela2" Association="Self.fk_MundialQuiniela2">
             <End Role="Mundial" EntitySet="Mundial" />
             <End Role="Quiniela" EntitySet="Quiniela" />
           </AssociationSet>
@@ -515,21 +514,19 @@
           <Property Name="golesEncuentros" Type="Int32" Nullable="false" />
           <Property Name="puntosEncuentro" Type="Double" Nullable="false" />
           <Property Name="fechaEncuentro" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="EncuentroGrupoVati" Relationship="Self.fk_EncuGrupVati1" FromRole="EncuentroGrupo" ToRole="EncuentroGrupoVati" />
-          <NavigationProperty Name="EncuentroGrupoVati1" Relationship="Self.fk_EncuGrupVati2" FromRole="EncuentroGrupo" ToRole="EncuentroGrupoVati" />
+          <NavigationProperty Name="EncuentroGrupoVatii" Relationship="Self.fk_EncuGrupVati1" FromRole="EncuentroGrupo" ToRole="EncuentroGrupoVatii" />
         </EntityType>
-        <EntityType Name="EncuentroGrupoVati">
+        <EntityType Name="EncuentroGrupoVatii">
           <Key>
             <PropertyRef Name="idEncGruVati" />
           </Key>
           <Property Name="idEncGruVati" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="idEncGrup1" Type="Int32" Nullable="false" />
-          <Property Name="PrediGol1" Type="Int32" Nullable="false" />
-          <Property Name="idEncGrup2" Type="Int32" Nullable="false" />
-          <Property Name="PrediGol2" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="EncuentroGrupo" Relationship="Self.fk_EncuGrupVati1" FromRole="EncuentroGrupoVati" ToRole="EncuentroGrupo" />
-          <NavigationProperty Name="EncuentroGrupo1" Relationship="Self.fk_EncuGrupVati2" FromRole="EncuentroGrupoVati" ToRole="EncuentroGrupo" />
-          <NavigationProperty Name="Vaticinio" Relationship="Self.fk_EnGruVatiVati" FromRole="EncuentroGrupoVati" ToRole="Vaticinio" />
+          <Property Name="idEncuentro" Type="Int32" Nullable="false" />
+          <Property Name="idEncGrup" Type="Int32" Nullable="false" />
+          <Property Name="PrediGol" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="EncuentroGrupo" Relationship="Self.fk_EncuGrupVati1" FromRole="EncuentroGrupoVatii" ToRole="EncuentroGrupo" />
+          <NavigationProperty Name="Encuentros" Relationship="Self.fk_Encuentr2EnGruVati" FromRole="EncuentroGrupoVatii" ToRole="Encuentros" />
+          <NavigationProperty Name="Vaticinio" Relationship="Self.fk_EnGruVatiVati" FromRole="EncuentroGrupoVatii" ToRole="Vaticinio" />
         </EntityType>
         <EntityType Name="Encuentros">
           <Key>
@@ -537,6 +534,7 @@
           </Key>
           <Property Name="idEncuentro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="encuentroNumero" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="EncuentroGrupoVatii" Relationship="Self.fk_Encuentr2EnGruVati" FromRole="Encuentros" ToRole="EncuentroGrupoVatii" />
           <NavigationProperty Name="Vaticinio" Relationship="Self.fk_EncuentVati" FromRole="Encuentros" ToRole="Vaticinio" />
         </EntityType>
         <EntityType Name="Equipo">
@@ -589,7 +587,7 @@
           <Property Name="mundial1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="fechar" Type="DateTime" Precision="0" />
           <NavigationProperty Name="EquipoGrupo" Relationship="Self.fk_MundialEquiGrup" FromRole="Mundial" ToRole="EquipoGrupo" />
-          <NavigationProperty Name="Quiniela" Relationship="Self.fk_MundialQuiniela" FromRole="Mundial" ToRole="Quiniela" />
+          <NavigationProperty Name="Quiniela" Relationship="Self.fk_MundialQuiniela2" FromRole="Mundial" ToRole="Quiniela" />
         </EntityType>
         <EntityType Name="Persona">
           <Key>
@@ -624,7 +622,7 @@
           <Property Name="idMundial" Type="Int32" Nullable="false" />
           <Property Name="idTipQui" Type="Int32" Nullable="false" />
           <Property Name="monto" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Mundial" Relationship="Self.fk_MundialQuiniela" FromRole="Quiniela" ToRole="Mundial" />
+          <NavigationProperty Name="Mundial" Relationship="Self.fk_MundialQuiniela2" FromRole="Quiniela" ToRole="Mundial" />
           <NavigationProperty Name="QuinielaVaticinio" Relationship="Self.fk_QuiQuivati" FromRole="Quiniela" ToRole="QuinielaVaticinio" />
           <NavigationProperty Name="Vaticinio" Relationship="Self.fk_QuiVati" FromRole="Quiniela" ToRole="Vaticinio" />
           <NavigationProperty Name="TipoQuiniela" Relationship="Self.fk_tipoQuiniela" FromRole="Quiniela" ToRole="TipoQuiniela" />
@@ -684,7 +682,7 @@
           <Property Name="idVatiEstado" Type="Int32" Nullable="false" />
           <Property Name="puntosVati" Type="Double" Nullable="false" />
           <Property Name="fechaVati" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="EncuentroGrupoVati" Relationship="Self.fk_EnGruVatiVati" FromRole="Vaticinio" ToRole="EncuentroGrupoVati" />
+          <NavigationProperty Name="EncuentroGrupoVatii" Relationship="Self.fk_EnGruVatiVati" FromRole="Vaticinio" ToRole="EncuentroGrupoVatii" />
           <NavigationProperty Name="Encuentros" Relationship="Self.fk_EncuentVati" FromRole="Vaticinio" ToRole="Encuentros" />
           <NavigationProperty Name="Persona" Relationship="Self.fk_persoVati" FromRole="Vaticinio" ToRole="Persona" />
           <NavigationProperty Name="Quiniela" Relationship="Self.fk_QuiVati" FromRole="Vaticinio" ToRole="Quiniela" />
@@ -701,33 +699,33 @@
         </EntityType>
         <Association Name="fk_EncuGrupVati1">
           <End Role="EncuentroGrupo" Type="Self.EncuentroGrupo" Multiplicity="1" />
-          <End Role="EncuentroGrupoVati" Type="Self.EncuentroGrupoVati" Multiplicity="*" />
+          <End Role="EncuentroGrupoVatii" Type="Self.EncuentroGrupoVatii" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="EncuentroGrupo">
               <PropertyRef Name="idEncGrup" />
             </Principal>
-            <Dependent Role="EncuentroGrupoVati">
-              <PropertyRef Name="idEncGrup1" />
+            <Dependent Role="EncuentroGrupoVatii">
+              <PropertyRef Name="idEncGrup" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_EncuGrupVati2">
-          <End Role="EncuentroGrupo" Type="Self.EncuentroGrupo" Multiplicity="1" />
-          <End Role="EncuentroGrupoVati" Type="Self.EncuentroGrupoVati" Multiplicity="*" />
+        <Association Name="fk_Encuentr2EnGruVati">
+          <End Role="Encuentros" Type="Self.Encuentros" Multiplicity="1" />
+          <End Role="EncuentroGrupoVatii" Type="Self.EncuentroGrupoVatii" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="EncuentroGrupo">
-              <PropertyRef Name="idEncGrup" />
+            <Principal Role="Encuentros">
+              <PropertyRef Name="idEncuentro" />
             </Principal>
-            <Dependent Role="EncuentroGrupoVati">
-              <PropertyRef Name="idEncGrup2" />
+            <Dependent Role="EncuentroGrupoVatii">
+              <PropertyRef Name="idEncuentro" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_EnGruVatiVati">
-          <End Role="EncuentroGrupoVati" Type="Self.EncuentroGrupoVati" Multiplicity="1" />
+          <End Role="EncuentroGrupoVatii" Type="Self.EncuentroGrupoVatii" Multiplicity="1" />
           <End Role="Vaticinio" Type="Self.Vaticinio" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="EncuentroGrupoVati">
+            <Principal Role="EncuentroGrupoVatii">
               <PropertyRef Name="idEncGruVati" />
             </Principal>
             <Dependent Role="Vaticinio">
@@ -819,7 +817,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_MundialQuiniela">
+        <Association Name="fk_MundialQuiniela2">
           <End Role="Mundial" Type="Self.Mundial" Multiplicity="1" />
           <End Role="Quiniela" Type="Self.Quiniela" Multiplicity="*" />
           <ReferentialConstraint>
@@ -939,9 +937,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="QuinielaEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="QuinielaEntities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="EncuentroGrupo" EntityType="Self.EncuentroGrupo" />
-          <EntitySet Name="EncuentroGrupoVati" EntityType="Self.EncuentroGrupoVati" />
+          <EntitySet Name="EncuentroGrupoVatii" EntityType="Self.EncuentroGrupoVatii" />
           <EntitySet Name="Encuentros" EntityType="Self.Encuentros" />
           <EntitySet Name="Equipo" EntityType="Self.Equipo" />
           <EntitySet Name="EquipoGrupo" EntityType="Self.EquipoGrupo" />
@@ -959,14 +957,14 @@
           <EntitySet Name="VatiEstado" EntityType="Self.VatiEstado" />
           <AssociationSet Name="fk_EncuGrupVati1" Association="Self.fk_EncuGrupVati1">
             <End Role="EncuentroGrupo" EntitySet="EncuentroGrupo" />
-            <End Role="EncuentroGrupoVati" EntitySet="EncuentroGrupoVati" />
+            <End Role="EncuentroGrupoVatii" EntitySet="EncuentroGrupoVatii" />
           </AssociationSet>
-          <AssociationSet Name="fk_EncuGrupVati2" Association="Self.fk_EncuGrupVati2">
-            <End Role="EncuentroGrupo" EntitySet="EncuentroGrupo" />
-            <End Role="EncuentroGrupoVati" EntitySet="EncuentroGrupoVati" />
+          <AssociationSet Name="fk_Encuentr2EnGruVati" Association="Self.fk_Encuentr2EnGruVati">
+            <End Role="Encuentros" EntitySet="Encuentros" />
+            <End Role="EncuentroGrupoVatii" EntitySet="EncuentroGrupoVatii" />
           </AssociationSet>
           <AssociationSet Name="fk_EnGruVatiVati" Association="Self.fk_EnGruVatiVati">
-            <End Role="EncuentroGrupoVati" EntitySet="EncuentroGrupoVati" />
+            <End Role="EncuentroGrupoVatii" EntitySet="EncuentroGrupoVatii" />
             <End Role="Vaticinio" EntitySet="Vaticinio" />
           </AssociationSet>
           <AssociationSet Name="fk_EncuentVati" Association="Self.fk_EncuentVati">
@@ -997,7 +995,7 @@
             <End Role="Usuario" EntitySet="Usuario" />
             <End Role="Invitados" EntitySet="Invitados" />
           </AssociationSet>
-          <AssociationSet Name="fk_MundialQuiniela" Association="Self.fk_MundialQuiniela">
+          <AssociationSet Name="fk_MundialQuiniela2" Association="Self.fk_MundialQuiniela2">
             <End Role="Mundial" EntitySet="Mundial" />
             <End Role="Quiniela" EntitySet="Quiniela" />
           </AssociationSet>
@@ -1043,7 +1041,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="QuinielaModelStoreContainer" CdmEntityContainer="QuinielaEntities1">
+        <EntityContainerMapping StorageEntityContainer="QuinielaModelStoreContainer" CdmEntityContainer="QuinielaEntities2">
           <EntitySetMapping Name="EncuentroGrupo">
             <EntityTypeMapping TypeName="QuinielaModel.EncuentroGrupo">
               <MappingFragment StoreEntitySet="EncuentroGrupo">
@@ -1057,14 +1055,13 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="EncuentroGrupoVati">
-            <EntityTypeMapping TypeName="QuinielaModel.EncuentroGrupoVati">
-              <MappingFragment StoreEntitySet="EncuentroGrupoVati">
+          <EntitySetMapping Name="EncuentroGrupoVatii">
+            <EntityTypeMapping TypeName="QuinielaModel.EncuentroGrupoVatii">
+              <MappingFragment StoreEntitySet="EncuentroGrupoVatii">
                 <ScalarProperty Name="idEncGruVati" ColumnName="idEncGruVati" />
-                <ScalarProperty Name="idEncGrup1" ColumnName="idEncGrup1" />
-                <ScalarProperty Name="PrediGol1" ColumnName="PrediGol1" />
-                <ScalarProperty Name="idEncGrup2" ColumnName="idEncGrup2" />
-                <ScalarProperty Name="PrediGol2" ColumnName="PrediGol2" />
+                <ScalarProperty Name="idEncuentro" ColumnName="idEncuentro" />
+                <ScalarProperty Name="idEncGrup" ColumnName="idEncGrup" />
+                <ScalarProperty Name="PrediGol" ColumnName="PrediGol" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

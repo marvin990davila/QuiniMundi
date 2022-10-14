@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="QuinielaModelStoreContainer" CdmEntityContainer="QuinielaEntities1">
+  <EntityContainerMapping StorageEntityContainer="QuinielaModelStoreContainer" CdmEntityContainer="QuinielaEntities2">
     <EntitySetMapping Name="EncuentroGrupo">
       <EntityTypeMapping TypeName="QuinielaModel.EncuentroGrupo">
         <MappingFragment StoreEntitySet="EncuentroGrupo">
@@ -14,14 +14,13 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="EncuentroGrupoVati">
-      <EntityTypeMapping TypeName="QuinielaModel.EncuentroGrupoVati">
-        <MappingFragment StoreEntitySet="EncuentroGrupoVati">
+    <EntitySetMapping Name="EncuentroGrupoVatii">
+      <EntityTypeMapping TypeName="QuinielaModel.EncuentroGrupoVatii">
+        <MappingFragment StoreEntitySet="EncuentroGrupoVatii">
           <ScalarProperty Name="idEncGruVati" ColumnName="idEncGruVati" />
-          <ScalarProperty Name="idEncGrup1" ColumnName="idEncGrup1" />
-          <ScalarProperty Name="PrediGol1" ColumnName="PrediGol1" />
-          <ScalarProperty Name="idEncGrup2" ColumnName="idEncGrup2" />
-          <ScalarProperty Name="PrediGol2" ColumnName="PrediGol2" />
+          <ScalarProperty Name="idEncuentro" ColumnName="idEncuentro" />
+          <ScalarProperty Name="idEncGrup" ColumnName="idEncGrup" />
+          <ScalarProperty Name="PrediGol" ColumnName="PrediGol" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

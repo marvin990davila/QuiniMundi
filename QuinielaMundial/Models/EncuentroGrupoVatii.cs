@@ -12,22 +12,21 @@ namespace QuinielaMundial.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class EncuentroGrupoVati
+    public partial class EncuentroGrupoVatii
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public EncuentroGrupoVati()
+        public EncuentroGrupoVatii()
         {
             this.Vaticinio = new HashSet<Vaticinio>();
         }
     
         public int idEncGruVati { get; set; }
-        public int idEncGrup1 { get; set; }
-        public int PrediGol1 { get; set; }
-        public int idEncGrup2 { get; set; }
-        public int PrediGol2 { get; set; }
+        public int idEncuentro { get; set; }
+        public int idEncGrup { get; set; }
+        public int PrediGol { get; set; }
     
         public virtual EncuentroGrupo EncuentroGrupo { get; set; }
-        public virtual EncuentroGrupo EncuentroGrupo1 { get; set; }
+        public virtual Encuentros Encuentros { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Vaticinio> Vaticinio { get; set; }
     }

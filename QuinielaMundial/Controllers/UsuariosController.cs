@@ -13,44 +13,44 @@ using QuinielaMundial.Models;
 
 namespace QuinielaMundial.Controllers
 {
-    public class PersonasController : ApiController
+    public class UsuariosController : ApiController
     {
         private QuinielaEntities2 db = new QuinielaEntities2();
 
-        // GET: api/Personas
-        public IQueryable<Persona> GetPersona()
+        // GET: api/Usuarios
+        public IQueryable<Usuario> GetUsuario()
         {
-            return db.Persona;
+            return db.Usuario;
         }
 
-        // GET: api/Personas/5
-        [ResponseType(typeof(Persona))]
-        public async Task<IHttpActionResult> GetPersona(int id)
+        // GET: api/Usuarios/5
+        [ResponseType(typeof(Usuario))]
+        public async Task<IHttpActionResult> GetUsuario(int id)
         {
-            Persona persona = await db.Persona.FindAsync(id);
-            if (persona == null)
+            Usuario usuario = await db.Usuario.FindAsync(id);
+            if (usuario == null)
             {
                 return NotFound();
             }
 
-            return Ok(persona);
+            return Ok(usuario);
         }
 
-        // PUT: api/Personas/5
+        // PUT: api/Usuarios/5
         [ResponseType(typeof(void))]
-        public async Task<IHttpActionResult> PutPersona(int id, Persona persona)
+        public async Task<IHttpActionResult> PutUsuario(int id, Usuario usuario)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != persona.idPersona)
+            if (id != usuario.idUser)
             {
                 return BadRequest();
             }
 
-            db.Entry(persona).State = EntityState.Modified;
+            db.Entry(usuario).State = EntityState.Modified;
 
             try
             {
@@ -58,7 +58,7 @@ namespace QuinielaMundial.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!PersonaExists(id))
+                if (!UsuarioExists(id))
                 {
                     return NotFound();
                 }
@@ -71,35 +71,35 @@ namespace QuinielaMundial.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Personas
-        [ResponseType(typeof(Persona))]
-        public async Task<IHttpActionResult> PostPersona(Persona persona)
+        // POST: api/Usuarios
+        [ResponseType(typeof(Usuario))]
+        public async Task<IHttpActionResult> PostUsuario(Usuario usuario)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Persona.Add(persona);
+            db.Usuario.Add(usuario);
             await db.SaveChangesAsync();
 
-            return CreatedAtRoute("DefaultApi", new { id = persona.idPersona }, persona);
+            return CreatedAtRoute("DefaultApi", new { id = usuario.idUser }, usuario);
         }
 
-        // DELETE: api/Personas/5
-        [ResponseType(typeof(Persona))]
-        public async Task<IHttpActionResult> DeletePersona(int id)
+        // DELETE: api/Usuarios/5
+        [ResponseType(typeof(Usuario))]
+        public async Task<IHttpActionResult> DeleteUsuario(int id)
         {
-            Persona persona = await db.Persona.FindAsync(id);
-            if (persona == null)
+            Usuario usuario = await db.Usuario.FindAsync(id);
+            if (usuario == null)
             {
                 return NotFound();
             }
 
-            db.Persona.Remove(persona);
+            db.Usuario.Remove(usuario);
             await db.SaveChangesAsync();
 
-            return Ok(persona);
+            return Ok(usuario);
         }
 
         protected override void Dispose(bool disposing)
@@ -111,9 +111,9 @@ namespace QuinielaMundial.Controllers
             base.Dispose(disposing);
         }
 
-        private bool PersonaExists(int id)
+        private bool UsuarioExists(int id)
         {
-            return db.Persona.Count(e => e.idPersona == id) > 0;
+            return db.Usuario.Count(e => e.idUser == id) > 0;
         }
     }
 }
