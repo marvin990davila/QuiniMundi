@@ -17,7 +17,21 @@ namespace QuinielaMundial.Controllers
     {
         private QuinielaEntities2 db = new QuinielaEntities2();
 
-        // GET: api/Usuarios
+
+        //GET api/Usuarios/
+
+        public IEnumerable<Models.Usuario> Get()
+        {
+            IEnumerable<Models.Usuario> lst;
+            using (Models.QuinielaEntities2 db = new Models.QuinielaEntities2())
+            {
+                lst = db.Usuario.ToList();
+            }
+
+            return lst;
+        }
+
+       /* // GET: api/Usuarios/5
         public IQueryable<Usuario> GetUsuario()
         {
             return db.Usuario;
@@ -34,7 +48,7 @@ namespace QuinielaMundial.Controllers
             }
 
             return Ok(usuario);
-        }
+        }*/
 
         // PUT: api/Usuarios/5
         [ResponseType(typeof(void))]

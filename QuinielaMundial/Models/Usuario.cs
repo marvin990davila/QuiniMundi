@@ -14,22 +14,23 @@ namespace QuinielaMundial.Models
     
     public partial class Usuario
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        /*[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Usuario()
         {
             this.Invitados = new HashSet<Invitados>();
             this.Quiniela = new HashSet<Quiniela>();
-        }
+        }*/
     
         public int idUser { get; set; }
         public string nameUser { get; set; }
         public string passwworr { get; set; }
         public int idPersona { get; set; }
     
+        /*
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Invitados> Invitados { get; set; }
         public virtual Persona Persona { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Quiniela> Quiniela { get; set; }
+        public virtual ICollection<Quiniela> Quiniela { get; set; }*/
     }
 }

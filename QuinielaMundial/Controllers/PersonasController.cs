@@ -18,10 +18,23 @@ namespace QuinielaMundial.Controllers
         private QuinielaEntities2 db = new QuinielaEntities2();
 
         // GET: api/Personas
+        public IEnumerable<Models.Persona> Get()
+        {
+            IEnumerable<Models.Persona> lst;
+            using (Models.QuinielaEntities2 db = new Models.QuinielaEntities2())
+            {
+                lst = db.Persona.ToList();
+            }
+
+            return lst;
+        }
+
+        /*
+        // GET: api/Personas
         public IQueryable<Persona> GetPersona()
         {
             return db.Persona;
-        }
+        }*/
 
         // GET: api/Personas/5
         [ResponseType(typeof(Persona))]
