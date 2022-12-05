@@ -14,20 +14,20 @@ namespace QuinielaMundial.Models
     
     public partial class Mundial
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Mundial()
+        //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        /*public Mundial()
         {
             this.EquipoGrupo = new HashSet<EquipoGrupo>();
             this.Quiniela = new HashSet<Quiniela>();
-        }
+        }*/
     
         public int idMundial { get; set; }
         public string mundial1 { get; set; }
         public Nullable<System.DateTime> fechar { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<EquipoGrupo> EquipoGrupo { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Quiniela> Quiniela { get; set; }
+        //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        /*public virtual ICollection<EquipoGrupo> EquipoGrupo { get; set; }
+        //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Quiniela> Quiniela { get; set; }*/
     }
 }

@@ -14,16 +14,16 @@ namespace QuinielaMundial.Models
     
     public partial class Equipo
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        /*[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Equipo()
         {
             this.EquipoGrupo = new HashSet<EquipoGrupo>();
-        }
+        }*/
     
         public int idEquipo { get; set; }
         public string equipo1 { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<EquipoGrupo> EquipoGrupo { get; set; }
+        /*[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<EquipoGrupo> EquipoGrupo { get; set; }*/
     }
 }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2/7tx8C/hW/NMzONjKEpCTlr/QkOay469BM+jVDwaWXPiOwG0VTExQ7kC7ORc9DEKsXpinfNFf7WktD51dLXOg==",
+  "dgSpecHash": "s6mDirfTRsFIkA+1B/JBflMd/+tk2AvpAy+EtW9wcBAEagbeAeXG1CObfraW6WNzngi3VOPOpQBxNJFY9+glEw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Marz9\\Documents\\Visual Studio 2022\\QuinielaMundial\\PruQuiniela\\PruQuiniela.csproj",
+  "projectFilePath": "C:\\Users\\Marz9\\Documents\\Visual Studio 2022\\Quiniela\\QuiniMundi\\PruQuiniela\\PruQuiniela.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Marz9\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",
     "C:\\Users\\Marz9\\.nuget\\packages\\microsoft.codecoverage\\17.1.0\\microsoft.codecoverage.17.1.0.nupkg.sha512",

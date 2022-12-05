@@ -165,10 +165,13 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\EquipoesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MundialsController.cs" />
     <Compile Include="Controllers\PersonasController.cs" />
     <Compile Include="Controllers\pruevasController.cs" />
+    <Compile Include="Controllers\QuinielasController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Controllers\VaticiniosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

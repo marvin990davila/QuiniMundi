@@ -14,11 +14,11 @@ namespace QuinielaMundial.Models
     
     public partial class Vaticinio
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        /*[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Vaticinio()
         {
             this.QuinielaVaticinio = new HashSet<QuinielaVaticinio>();
-        }
+        }*/
     
         public int idVati { get; set; }
         public int idPersona { get; set; }
@@ -29,12 +29,12 @@ namespace QuinielaMundial.Models
         public double puntosVati { get; set; }
         public Nullable<System.DateTime> fechaVati { get; set; }
     
-        public virtual EncuentroGrupoVatii EncuentroGrupoVatii { get; set; }
+        /*public virtual EncuentroGrupoVatii EncuentroGrupoVatii { get; set; }
         public virtual Encuentros Encuentros { get; set; }
         public virtual Persona Persona { get; set; }
         public virtual Quiniela Quiniela { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<QuinielaVaticinio> QuinielaVaticinio { get; set; }
-        public virtual VatiEstado VatiEstado { get; set; }
+        public virtual VatiEstado VatiEstado { get; set; }*/
     }
 }

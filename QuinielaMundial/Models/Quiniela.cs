@@ -14,12 +14,12 @@ namespace QuinielaMundial.Models
     
     public partial class Quiniela
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        /*[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Quiniela()
         {
             this.QuinielaVaticinio = new HashSet<QuinielaVaticinio>();
             this.Vaticinio = new HashSet<Vaticinio>();
-        }
+        }*/
     
         public int idQui { get; set; }
         public string nameQuiniela { get; set; }
@@ -28,12 +28,12 @@ namespace QuinielaMundial.Models
         public int idTipQui { get; set; }
         public string monto { get; set; }
     
-        public virtual Mundial Mundial { get; set; }
+        /*public virtual Mundial Mundial { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<QuinielaVaticinio> QuinielaVaticinio { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Vaticinio> Vaticinio { get; set; }
         public virtual TipoQuiniela TipoQuiniela { get; set; }
-        public virtual Usuario Usuario { get; set; }
+        public virtual Usuario Usuario { get; set; }*/
     }
 }

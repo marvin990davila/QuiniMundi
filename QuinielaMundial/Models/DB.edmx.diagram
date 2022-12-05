@@ -14,7 +14,7 @@
         <EntityTypeShape EntityType="QuinielaModel.Invitados" Width="1.5" PointX="5.25" PointY="9.25" IsExpanded="true" />
         <EntityTypeShape EntityType="QuinielaModel.Mundial" Width="1.5" PointX="3" PointY="16.75" IsExpanded="true" />
         <EntityTypeShape EntityType="QuinielaModel.Persona" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuinielaModel.pruevas" Width="1.5" PointX="11.625" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuinielaModel.pruevas" Width="1.5" PointX="6.25" PointY="4.25" IsExpanded="true" />
         <EntityTypeShape EntityType="QuinielaModel.Quiniela" Width="1.5" PointX="5.25" PointY="13.25" IsExpanded="true" />
         <EntityTypeShape EntityType="QuinielaModel.QuinielaVaticinio" Width="1.5" PointX="3" PointY="5.875" IsExpanded="true" />
         <EntityTypeShape EntityType="QuinielaModel.Solicitudes" Width="1.5" PointX="3" PointY="22.625" IsExpanded="true" />
